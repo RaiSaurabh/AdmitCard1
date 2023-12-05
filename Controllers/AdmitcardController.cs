@@ -104,6 +104,10 @@ namespace AdmitCard.Controllers
         }
             catch(Exception ex) 
             {
+                Console.WriteLine("An exception ({0}) occurred.",
+                           ex.GetType().Name);
+                Console.WriteLine("Message:\n   {0}\n", ex.Message);
+                Console.WriteLine("Stack Trace:\n   {0}\n", ex.StackTrace);
                 return null;
             }
             finally

@@ -26,10 +26,12 @@ namespace AdmitCard.Controllers
         [HttpGet("GetPdf")]
         public async Task<IActionResult> GetPdf(string candidateno)
         {
+            Console.Out.WriteLine("Value of parameter received is:"+candidateno);
             if(candidateno == null)
             {
                 return null;
             }
+            
             string infilepath = inpath + candidateno + ".pdf";
             string inspdfpath = inspath;
             //var result=AddTimestampToPdf(infilepath, candidateno);

@@ -125,36 +125,40 @@ namespace AdmitCard.Controllers
 
                 // Create a graphics object for the page
                 XGraphics gfx = XGraphics.FromPdfPage(page);
-
+                Console.Out.WriteLine("Value of parameter gfx received is:"+gfx);
                 // Set the font and brush for the timestamp
                 XFont font = new XFont("Arial", 10, XFontStyle.Regular);
+                Console.Out.WriteLine("Value of parameter font received is:"+font);
                 XBrush brush = XBrushes.Black;
                 // Set Ip Address Here
                 string strHostName = System.Net.Dns.GetHostName();
                 IPHostEntry ipEntry = System.Net.Dns.GetHostEntry(strHostName);
                 IPAddress[] addr = ipEntry.AddressList;
                 var ipAddress = addr[addr.Length - 1].ToString();
-
+                 Console.Out.WriteLine("Value of parameter ipAddress received is:"+ipAddress);
                 // Get the current date and time
                 string timestamp = "Admit card Downloaded from http://upsssc.gov.in/, " + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + ", accessed IP Address : " + ipAddress;
                 // Get the current timestamp
                 //  string timestamp = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss", CultureInfo.InvariantCulture);
-
+                Console.Out.WriteLine("Value of parameter timestamp received is:"+timestamp);
                 // Calculate the position for the timestamp (top-right corner with some margin)
                 double x = page.Width.Point - gfx.MeasureString(timestamp, font).Width - 50;
                 double y1 = page.Height.Point - gfx.MeasureString(timestamp, font).Height - 815; ;
 
                 // Draw the timestamp on the page
                 gfx.DrawString(timestamp, font, brush, new XPoint(x, y1));
-
+                Console.Out.WriteLine("Value of parameter timestamp received is: Passed gfx Draw");
                 // Calculate the position for the timestamp (bottom-right corner with some margin)
                 //  double x = page.Width.Point - gfx.MeasureString(timestamp, font).Width - 50;
                 double y = page.Height.Point - gfx.MeasureString(timestamp, font).Height - 10;
-
+                Console.Out.WriteLine("Value of parameter timestamp received is: Passed Y");
                 // Draw the timestamp on the page
                 gfx.DrawString(timestamp, font, brush, new XPoint(x, y));
+                Console.Out.WriteLine("Value of parameter timestamp received is: Passed gfx draw");
             }
-            catch { }
+            catch { 
+            Console.Out.WriteLine("Exception is caught");
+            }
         }
 
 

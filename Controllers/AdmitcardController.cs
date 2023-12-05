@@ -31,11 +31,14 @@ namespace AdmitCard.Controllers
             {
                 return null;
             }
-            
+             Console.Out.WriteLine("Passed candidate number check#####");
             string infilepath = inpath + candidateno + ".pdf";
+            Console.Out.WriteLine("infilepath:"infilepath);
             string inspdfpath = inspath;
+            Console.Out.WriteLine("inspdfpath:"inspdfpath);
             //var result=AddTimestampToPdf(infilepath, candidateno);
             var result = MergePdfWithTimestamp(infilepath, inspdfpath, candidateno);
+            Console.Out.WriteLine("Value of parameter Result received is:"+result);
             if (result!=null)
             {
             

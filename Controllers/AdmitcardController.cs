@@ -38,7 +38,7 @@ namespace AdmitCard.Controllers
             var result = MergePdfWithTimestamp(infilepath, inspdfpath, candidateno);
             if (result!=null)
             {
-                result = null;
+            
                return result;
             }
             return null;

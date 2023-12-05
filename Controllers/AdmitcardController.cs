@@ -57,7 +57,8 @@ namespace AdmitCard.Controllers
             // Load the two PDFs
             PdfDocument pdf1 = PdfReader.Open(pdf1Path, PdfDocumentOpenMode.Import);
             PdfDocument pdf2 = PdfReader.Open(pdf2Path, PdfDocumentOpenMode.Import);
-
+            Console.Out.WriteLine("Value of parameter pdf1 received is:"+pdf1);
+            Console.Out.WriteLine("Value of parameter pdf2 received is:"+pdf2);
             // Create a new merged PDF
             PdfDocument mergedPdf = new PdfDocument();
 
@@ -90,7 +91,7 @@ namespace AdmitCard.Controllers
             // Save the merged PDF to a file
         //    mergedPdf.Save(mergedPdfPath);
             // Save the modified document to a new file
-
+            Console.Out.WriteLine("Reached to return response:");
 
             byte[]? response = null;
             ms = new MemoryStream();
@@ -98,6 +99,7 @@ namespace AdmitCard.Controllers
             response = ms.ToArray();
             string fileName = "AdmitCard" + candidateno + ".pdf";
            // File(response, "application/pdf", fileName);
+           Console.Out.WriteLine("Reached to filename response:"+fileName);
             return File(response, "application/pdf", fileName);
         }
             catch(Exception ex) 
